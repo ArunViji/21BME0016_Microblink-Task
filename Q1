@@ -1,10 +1,80 @@
+unsigned long TimeOne = 0;
+unsigned long TimeTwo = 0;
+unsigned long TimeThree = 0;
+unsigned long TimeFour = 0;
+int LEDState1 = HIGH;
+int LEDState2 = HIGH;
+int LEDState3 = HIGH;
+int LEDState4 = HIGH;
 void setup() {
-  pinMode(13,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+  pinMode(6,OUTPUT);
+  digitalWrite(3,HIGH);
+  digitalWrite(4,HIGH);
+  digitalWrite(5,HIGH);
+  digitalWrite(6,HIGH);
 }
 
 void loop() {
-  digitalWrite(13,HIGH);
-  delay(1000);
-  digitalWrite(13,LOW);
-  delay(1000);
+  if (LEDState1 == HIGH ) {
+    if (millis()-TimeOne >= 1000) {
+     digitalWrite(3,LOW);
+     TimeOne = millis();
+     LEDState1 = LOW;
+    } 
+  }
+  else {
+    if (millis()-TimeOne >= 1000) {
+     digitalWrite(3,HIGH);
+     TimeOne = millis();
+     LEDState1 = HIGH;
+    } 
+  } 
+  
+  if (LEDState2 == HIGH ) {
+    if (millis()-TimeTwo >= 2000) {
+     digitalWrite(4,LOW);
+     TimeTwo = millis();
+     LEDState2 = LOW;
+    } 
+  }
+  else {
+    if (millis()-TimeTwo >= 2000) {
+     digitalWrite(4,HIGH);
+     TimeTwo = millis();
+     LEDState2 = HIGH;
+    } 
+  } 
+
+  if (LEDState3 == HIGH ) {
+    if (millis()-TimeThree >= 500) {
+     digitalWrite(5,LOW);
+     TimeThree = millis();
+     LEDState3 = LOW;
+    } 
+  }
+  else {
+    if (millis()-TimeThree >= 1000) {
+     digitalWrite(5,HIGH);
+     TimeThree = millis();
+     LEDState3 = HIGH;
+    } 
+  } 
+
+  if (LEDState4 == HIGH ) {
+    if (millis()-TimeFour >= 1500) {
+     digitalWrite(6,LOW);
+     TimeFour = millis();
+     LEDState4 = LOW;
+    } 
+  }
+  else {
+    if (millis()-TimeFour >= 2000) {
+     digitalWrite(6,HIGH);
+     TimeFour = millis();
+     LEDState4 = HIGH;
+    } 
+  } 
 }
